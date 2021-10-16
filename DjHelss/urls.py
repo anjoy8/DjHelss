@@ -21,6 +21,7 @@ from . import testdb,search,testapi
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('testdbadd/', testdb.testdbadd),
+    path('getUrl/', testdb.getUrl),
     path('testdbquery/', testdb.testdbquery),
     url(r'^search-post/$', search.search_post),
     url('api/getusername/', testapi.getUserName),

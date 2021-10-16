@@ -4,9 +4,19 @@ from django.http import HttpResponse
 
 from myapps.models import Test
 
+import urllib.parse as urlparse
+
+#从url字符串中获取指定参数值
+def getUrl(url):
+    url = 'http://test.laozhang.com/h5/nsx/#/autoLogin?code=9bc8096d-8be0-40ef-9cd1-8b7624d5f063&redirect_url=/?umentData=%7B%22umengEventId%22:%22PageInsurance%22,%22umengParams%22:%7B%22Source%22:%22btn_bxfw_td%22%7D%7D'
+    #排除干扰项字符
+    url = url.replace("#/autoLogin", "")
+    parsed = urlparse.urlparse(url)
+    querys = urlparse.parse_qs(parsed.query, True)
+    print(querys)
+    return HttpResponse(querys['code'])
+
 # 数据库操作
-
-
 def testdbadd(request):
     test1 = Test(name='hello world')
     test1.save()
