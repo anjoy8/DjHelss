@@ -1,0 +1,20 @@
+<script src="http://code.jquery.com/jquery-1.2.1.min.js"></script>
+<ul>
+    {% for row in user_list %}
+    <li>
+        <a href="/cmdb/userdetail-{{ row.id }}/">{{ row.username }}</a> |
+        <a href="/cmdb/userdel-{{ row.id }}/">删除{{ row.id }}</a> |
+        <a href="/cmdb/useredit-{{ row.id }}/">编辑</a>
+        <input id="name_{{ row.id }}" type="text" />
+        <button onclick="{{row.path}}({{row.id}})">go</button>
+    </li>
+    {% endfor %}
+</ul>
+<script>
+    function go(id) {
+
+        var idval = $('#name_' + id).val()
+
+        alert(idval)
+    }
+</script>

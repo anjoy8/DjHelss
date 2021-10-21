@@ -1,6 +1,10 @@
+
 def printpolicy_job001():
-    a = 0
-    b = 1/a
+    f = open('D:\\Code\\Test\\Python\\DjCodeTest\\DjHelss\\DjHelss\\test.json')
+    data = f.read()
+    print(data)
+    f.close
+   
 
 
 if __name__ == "__main__":

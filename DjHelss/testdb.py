@@ -5,6 +5,12 @@ from django.http import HttpResponse
 from myapps.models import Test
 
 import urllib.parse as urlparse
+from django.shortcuts import render,HttpResponse,redirect
+from django.views import View
+
+def detail(request):
+    user_list = [{"username":22,"id":1,"path":"go"},{"username":223,"id":2,"path":"go"}]
+    return render(request, 'detail.html', {'user_list': user_list})
 
 #从url字符串中获取指定参数值
 def getUrl(url):
